@@ -70,3 +70,35 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Authentication
+gem 'devise'
+gem 'devise_invitable' 
+
+gem 'nested_scaffold'
+gem "view_component"
+
+
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'rack-cors'
+
+# searialization
+gem 'fast_jsonapi'
+
+#pagination
+gem 'will_paginate'
+
+#debugging
+gem 'pry'
+
+# Role Based Authorization
+gem 'cancancan'
+gem 'rolify'
+
+#pagination
+gem 'will_paginate'
+
+# Mail opener
+gem "letter_opener"
+gem 'letter_opener_web', '~> 2.0'
+gem "tailwindcss-rails", "~> 2.0"
