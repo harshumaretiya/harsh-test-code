@@ -68,7 +68,17 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  config.action_mailer.default_url_options = { host: 'directshift-harsh-demo.herokuapp.com', port: 5000 }
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'smtp.mailtrap.io', port: 2525 }
+  # config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => '09c47492be7c01',
+    :password => '3007519f4688eb',
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
+  }
 end
