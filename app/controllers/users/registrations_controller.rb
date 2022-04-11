@@ -14,8 +14,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
     if @user.save
-      @user.confirm
       @user.add_role :owner
+      @user.confirm
     end
   end
 

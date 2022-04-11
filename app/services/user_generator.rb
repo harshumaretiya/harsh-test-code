@@ -18,8 +18,6 @@ class UserGenerator
        user = User.new(params)
       end
 
-      # Add user into stripe
-      #user.stripe_customer_id = generate_stripe_user(user.email)&.id
       user.skip_confirmation_notification! 
       user.save!
       user.add_role :owner
@@ -167,10 +165,5 @@ class UserGenerator
       end
     end
 
-    def generate_stripe_user(email)
-      Stripe::Customer.create({
-        email: email,
-      })
-    end
   end
   
