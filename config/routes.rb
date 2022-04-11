@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     get "profile", to: "home#profile"
   end
   devise_for :users, controllers: {
-    invitations: 'users/invitations'
+    invitations: 'users/invitations',
+    registrations: 'users/registrations'
   }
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
