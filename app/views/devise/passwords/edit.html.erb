@@ -1,25 +1,31 @@
-<h2>Change your password</h2>
+<div class="font-sans">
+  <div class="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
+    <div class="relative sm:max-w-sm w-full">
+      <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+      <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+      <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+        <label for="" class="block mt-3 pb-6 text-xl text-gray-700 text-center font-semibold">
+          Change your password
+        </label>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, class: "mt-10") do |f| %>
+        <%= f.hidden_field :reset_password_token %>
+        
+      <%= f.label :password, "New Password", class: "uppercase text-sm font-bold opacity-70"  %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none" %>
+      <% if @minimum_password_length %>
+      <em class="text-sm"><%= @minimum_password_length %> characters minimum</em><br />
+      <% end %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+      <%= f.label :password_confirmation, "Confirm new password", class: "uppercase text-sm font-bold opacity-70" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none" %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+  
+        <div class="mt-7">
+          <%= f.submit "Change my password", class: "bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105" %>
+        </div>
+
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

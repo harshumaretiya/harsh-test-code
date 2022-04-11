@@ -47,8 +47,8 @@
             </div>
             <!-- Primary Navbar items -->
             <div class="hidden md:flex items-center space-x-1">
-              <a href="" class="py-4 px-2 text-gray-500 font-semibold hover:text-indigo-500 transition duration-300">Home</a>
-              
+            <%= link_to "Home", root_path, class: "py-4 px-2 text-gray-500 font-semibold hover:text-indigo-500 transition duration-300" %>
+
               <%= link_to "Profile", profile_path, class: "py-4 px-2 text-gray-500 font-semibold hover:text-indigo-500 transition duration-300" %>
               <%= link_to "Invite Staff User", new_user_invitation_path , class: "py-4 px-2 text-gray-500 font-semibold hover:text-indigo-500 transition duration-300" %>
 

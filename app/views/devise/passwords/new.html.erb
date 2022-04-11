@@ -1,7 +1,33 @@
-<h2>Forgot your password?</h2>
+<div class="font-sans">
+  <div class="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
+    <div class="relative sm:max-w-sm w-full">
+      <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+      <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+      <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+        <label for="" class="block mt-3 text-sm text-gray-700 text-center font-semibold">
+          Forgot your password?
+        </label>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, class: "mt-10") do |f| %>
+        <div class="mt-7">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0", placeholder: "Email" %>
+        </div>
+  
+        <div class="mt-7">
+          <%= f.submit "Send Token", class: "bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105" %>
+        </div>
 
+        <div class="flex mt-7 justify-center">
+          <%= link_to "Sign In",  new_session_path(resource_name), class: "text-center bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"  %><br />
+          <div class="mt-7">
+          </div>
+        </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -12,5 +38,3 @@
     <%= f.submit "Send me reset password instructions" %>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>
