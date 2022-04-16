@@ -13,4 +13,8 @@ class User < ApplicationRecord
   #Associations
   has_one :owner, class_name: 'User', foreign_key: 'owner_id'
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id', optional: true
+
+  #Validation
+
+  validates :email, :password, :first_name, :last_name, :contact_number, presence: true
 end
